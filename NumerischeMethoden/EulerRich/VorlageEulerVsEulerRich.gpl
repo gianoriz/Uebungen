@@ -1,0 +1,19 @@
+set term postscript eps enhanced color solid "Helvetica" 15
+set encoding iso_8859_1
+set output "EulerVsEulerRichGnuplot.eps"
+
+
+set title 'Euler Vs. Euler-Rich: Schiefer Wurf'
+set xlabel 'time [s]'
+set ylabel 'height [m]'
+set grid ytics
+set grid xtics
+set xrange [0:3]
+set yrange [0:16]
+set size square 1.5,1.5
+
+set multiplot
+plot "OriginalWerte.txt"
+replot "Eulerdt0k1.txt" with lines
+replot "EulerRichdt0k1.txt" with lines
+unset multiplot

@@ -1,0 +1,21 @@
+set term postscript eps enhanced color solid "Helvetica" 15
+set encoding iso_8859_1
+set output "Vergleich.eps"
+
+
+set title 'Euler Vs. Euler-Rich Vs. RungeKutta2.Ordn. Vs. RungeKutta4.Ordn.: Schiefer Wurf'
+set xlabel 'time [s]'
+set ylabel 'height [m]'
+set grid ytics
+set grid xtics
+set xrange [0:3.5]
+set yrange [0:14]
+set size square 1.5,1.5
+
+set multiplot
+plot "OriginalWerte.txt"
+replot "Eulerdt0k2.txt" with lines
+replot "EulerRichdt0k2.txt" with lines
+replot "RuKu2Ordndt0k2.txt" with lines
+replot "RuKu4Ordndt0k2.txt" with lines
+unset multiplot

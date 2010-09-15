@@ -1,0 +1,22 @@
+set term postscript eps enhanced color solid "Helvetica" 15
+set encoding iso_8859_1
+set output "EulerGnuplot.eps"
+
+
+set title 'Euler-Approximation: Schiefer Wurf'
+set xlabel 'time [s]'
+set ylabel 'height [m]'
+set grid ytics
+set grid xtics
+set xrange [0:4]
+set yrange [0:16]
+set size square 1.5,1.5
+
+set multiplot
+plot "OriginalWerte.txt"
+replot "Eulerdt0k7.txt" with lines
+replot "Eulerdt0k5.txt" with lines
+replot "Eulerdt0k3.txt" with lines
+replot "Eulerdt0k1.txt" with lines
+replot "Eulerdt0k01.txt" with lines
+unset multiplot
